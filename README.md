@@ -1,20 +1,20 @@
 blockchain-info-broadcast-capturer
 ==================================
 
-node.js program for capturing unconfirmed transaction and block broadcasts into a PostgreSQL database.
+node.js program for capturing unconfirmed transaction and block broadcasts from blockchain.info into a PostgreSQL database.
 
 Installation
 ============
 
 a) Clone my fork of the blockchain package:
-```bash
+```
 
 git clone https://github.com/gseshadri/blockchain.git <my-local-dir>/blockchain
 ```
 
 b) Resolve depedencies:
 
-```bash
+```
 
 npm install pg sql <my-local-dir>/blockchain
 ```
