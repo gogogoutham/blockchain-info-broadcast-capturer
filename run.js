@@ -36,9 +36,15 @@ var pgload = function(dbUrl, tableName, insertFields, data, callback) {
     });
 };
 
+// Establish socket and attempt to reconnect if broken
+var socket = new blockChainInfoWs();
+socket.on("disconnect", function() {
+    console.log("Experienced a disconnection @ " + (new Date()).toISOString());
+    console.log("Attempting to reconnect...");
+    socket.connect();
+});
 
 // Subscribe to the unconfirmed transaction feed and load relevant details on reception
-var socket = new blockChainInfoWs();
 socket.subscribeUnconfirmed( function(message) {
     // console.log("Received the following transaction broadcast: %o", message);
     var broadcastData = [{
